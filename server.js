@@ -8,6 +8,7 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+
 // This function allows a user to see all of the departments.
 const departmentAll = () => {
     db.query(`SELECT name as Name FROM department;`, (err, res) => {
