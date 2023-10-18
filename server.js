@@ -76,9 +76,9 @@ const employeeAdd = () => {
             message: 'What is the employee\'s manager ID?',
             name: 'managerId'
         }
-    ]).then((answers) => {
+    ]).then((data) => {
         db.query(`INSERT INTO employees (first_name, last_name, role_id, manager_id) VALUES (?,?,?,?);`,
-            [answers.firstName, answers.lastName, answers.roleId, answers.managerId],
+            [data.firstName, data.lastName, data.roleId, data.managerId],
             (err) => {
                 if (err) throw err;
                 console.log('Added new employee');
@@ -117,13 +117,13 @@ const roleAdd = () => {
             message: 'What is the department`s id number?',
             name: 'deptRole'
         }
-    ]).then((answers) => {
+    ]).then((data) => {
         db.query(`INSERT INTO role(title, salary, department_id) VALUES (?,?,?);`,
-            [answers.role, answers.salary, answers.deptRole],
+            [data.role, data.salary, data.deptRole],
             (err) => {
                 if (err) throw err;
                 console.log('Added the new role to the database.');
-                console.table(answers);
+                console.table(data);
                 startingQuestion();
             });
     });
@@ -146,9 +146,9 @@ const employeeRoleUpdate = () => {
             message: 'To what role will the employee be updated?',
             name: 'updatedEmployeeRole'
         }
-    ]).then((answers) => {
+    ]).then((data) => {
         db.query(`UPDATE employees SET role_id = (?) WHERE id = (?);`,
-            [answers.updatedEmployeeRole, answers.updateEmployee],
+            [data.updatedEmployeeRole, data.updateEmployee],
             (err) => {
                 if (err) throw err;
                 console.log('Updated the employee information.');
