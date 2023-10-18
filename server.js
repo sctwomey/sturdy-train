@@ -154,7 +154,6 @@ const employeeRoleUpdate = () => {
                 startingQuestion();
             });
     });
-
 };
 
 // This is the initial list of questions to prompt a user.
