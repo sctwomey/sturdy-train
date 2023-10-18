@@ -29,13 +29,13 @@ const departmentAdd = () => {
             message: 'Which department would you like to update?',
             name: 'dept'
         }
-    ]).then((answers) => {
+    ]).then((data) => {
         db.query(`INSERT INTO department(name) VALUES (?);`,
-            [answers.dept],
+            [data.dept],
             (err) => {
                 if (err) throw err;
                 console.log('Updated with new department in database.');
-                console.table(answers);
+                console.table(data);
                 startingQuestion();
             });
     });
