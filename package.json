@@ -1,0 +1,17 @@
+{
+    "name": "employee-tracker-challenge12",
+    "version": "1.0.0",
+    "description": "Employee Tracker",
+    "main": "",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Stephen Twomey",
+    "license": "ISC",
+    "dependencies": {
+        "console.table": "^0.10.0",
+        "express": "^4.17.3",
+        "inquirer": "^8.2.4",
+        "mysql2": "^2.2.5"
+    }
+}
