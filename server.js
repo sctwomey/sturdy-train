@@ -17,7 +17,7 @@ const departmentAll = () => {
         };
         console.log('Seeing all of the departments.');
         console.table(res);
-        startingQuestion();
+        beginPrompting();
     });
 };
 
@@ -36,7 +36,7 @@ const departmentAdd = () => {
                 if (err) throw err;
                 console.log('Updated with new department in database.');
                 console.table(data);
-                startingQuestion();
+                beginPrompting();
             });
     });
 };
@@ -49,7 +49,7 @@ const employeeAll = () => {
         };
         console.log('Seeing all of the employees.');
         console.table(res);
-        startingQuestion();
+        beginPrompting();
     });
 };
 
@@ -82,7 +82,7 @@ const employeeAdd = () => {
             (err) => {
                 if (err) throw err;
                 console.log('Added new employee');
-                startingQuestion();
+                beginPrompting();
             });
     });
 };
@@ -95,7 +95,7 @@ const roleAll = () => {
         };
         console.log('Seeing all of the roles.');
         console.table(res);
-        startingQuestion();
+        beginPrompting();
     });
 };
 
@@ -124,7 +124,7 @@ const roleAdd = () => {
                 if (err) throw err;
                 console.log('Added the new role to the database.');
                 console.table(data);
-                startingQuestion();
+                beginPrompting();
             });
     });
 };
@@ -152,17 +152,17 @@ const employeeRoleUpdate = () => {
             (err) => {
                 if (err) throw err;
                 console.log('Updated the employee information.');
-                startingQuestion();
+                beginPrompting();
             });
     });
 };
 
 // This is the initial list of questions to prompt a user.
-const startingQuestion = () => {
+const beginPrompting = () => {
     inquirer.prompt([
         {
             type: 'list',
-            name: 'startingQuestion',
+            name: 'beginPrompting',
             message: 'Please select an option.',
             choices: [
                 'List Departments',
@@ -175,29 +175,29 @@ const startingQuestion = () => {
                 'Quit'
             ]
         }
-    ]).then((answer) => {
-        if (answer.startingQuestion === 'List Departments') {
+    ]).then((data) => {
+        if (data.beginPrompting === 'List Departments') {
             departmentAll();
         };
-        if (answer.startingQuestion === 'List Roles') {
+        if (data.beginPrompting === 'List Roles') {
             roleAll();
         };
-        if (answer.startingQuestion === 'List Employees') {
+        if (data.beginPrompting === 'List Employees') {
             employeeAll();
         };
-        if (answer.startingQuestion === 'Add A Department') {
+        if (data.beginPrompting === 'Add A Department') {
             departmentAdd();
         };
-        if (answer.startingQuestion === 'Add A Role') {
+        if (data.beginPrompting === 'Add A Role') {
             roleAdd();
         };
-        if (answer.startingQuestion === 'Add An Employee') {
+        if (data.beginPrompting === 'Add An Employee') {
             employeeAdd();
         };
-        if (answer.startingQuestion === 'Update An Employee Role') {
+        if (data.beginPrompting === 'Update An Employee Role') {
             employeeRoleUpdate();
         };
-        if (answer.startingQuestion === 'Quit') {
+        if (data.beginPrompting === 'Quit') {
             quit();
         };
     });
@@ -208,7 +208,7 @@ db.connect((err) => {
     app.listen(PORT, () => {
         console.log(`You are now on port ${PORT}`);
     });
-    startingQuestion();
+    beginPrompting();
 });
 
 const quit = () => {
