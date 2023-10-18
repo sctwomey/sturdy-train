@@ -5,7 +5,7 @@ This challenge requires the development of a
 
 Images of the application's appearance and functionality are here.
 
-<img src=" " alt=" File Image" title=" File Screenshot">
+<img src="images/12-sql-homework-demo-01.png" alt="SQL Database File Image" title="SQL Database File Screenshot">
 
 ## Installation
 
