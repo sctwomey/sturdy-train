@@ -15,7 +15,7 @@ const departmentAll = () => {
         if (err) {
             console.log(err);
         };
-        console.log('Seeing all of the departments.');
+        console.log('All of the departments are now listed.');
         console.table(res);
         beginPrompting();
     });
@@ -26,7 +26,7 @@ const departmentAdd = () => {
     inquirer.prompt([
         {
             type: 'input',
-            message: 'Which department would you like to update?',
+            message: 'What deparment would you like to add?',
             name: 'dept'
         }
     ]).then((data) => {
@@ -34,7 +34,7 @@ const departmentAdd = () => {
             [data.dept],
             (err) => {
                 if (err) throw err;
-                console.log('Updated with new department in database.');
+                console.log('The new department has been added to the database.');
                 console.table(data);
                 beginPrompting();
             });
@@ -47,7 +47,7 @@ const employeeAll = () => {
         if (err) {
             console.log(err);
         };
-        console.log('Seeing all of the employees.');
+        console.log('All of the employees are now listed.');
         console.table(res);
         beginPrompting();
     });
@@ -81,7 +81,7 @@ const employeeAdd = () => {
             [data.firstName, data.lastName, data.roleId, data.managerId],
             (err) => {
                 if (err) throw err;
-                console.log('Added new employee');
+                console.log('The new employee has been added to the database.');
                 beginPrompting();
             });
     });
@@ -93,7 +93,7 @@ const roleAll = () => {
         if (err) {
             console.log(err);
         };
-        console.log('Seeing all of the roles.');
+        console.log('All of the roles are now listed.');
         console.table(res);
         beginPrompting();
     });
@@ -122,7 +122,7 @@ const roleAdd = () => {
             [data.role, data.salary, data.deptRole],
             (err) => {
                 if (err) throw err;
-                console.log('Added the new role to the database.');
+                console.log('The new role has been added to the database.');
                 console.table(data);
                 beginPrompting();
             });
